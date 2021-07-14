@@ -37,7 +37,7 @@ comment on column PROPERTY.IS_ENABLE is '是否启用'
 /
 
 create
-unique index PROPERTY_VALUE_UINDEX
-    on PROPERTY (VALUE)
+unique index PROPERTY_CODE_UINDEX
+    on PROPERTY (CODE)
 /
 
