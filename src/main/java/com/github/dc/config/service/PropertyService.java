@@ -20,7 +20,7 @@ public interface PropertyService extends DefaultService<Property> {
      * @param propertyCode 属性代码
      * @return 对应的属性值
      */
-    String getPropertyDesc(String code, String propertyCode);
+    String getPropertyValue(String code, String propertyCode);
 
     /**
      * 根据配置编码和属性代码获取属性（只取启用的）

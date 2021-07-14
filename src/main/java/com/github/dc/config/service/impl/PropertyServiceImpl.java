@@ -22,7 +22,7 @@ public class PropertyServiceImpl extends DefaultServiceImpl<Property> implements
     private ConfigService configService;
 
     @Override
-    public String getPropertyDesc(String code, String propertyCode) {
+    public String getPropertyValue(String code, String propertyCode) {
         Property property = this.getProperty(code, propertyCode);
         if (property == null) {
             return null;
