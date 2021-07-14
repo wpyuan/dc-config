@@ -5,6 +5,7 @@ import com.github.dc.config.domain.entity.Config;
 import com.github.dc.config.domain.entity.Property;
 import com.github.dc.config.service.ConfigService;
 import com.github.dc.config.service.PropertyService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * @date 2021-04-13 15:33:21
  */
 @Service
+@Slf4j
 public class PropertyServiceImpl extends DefaultServiceImpl<Property> implements PropertyService {
     @Autowired
     private ConfigService configService;
@@ -25,6 +27,7 @@ public class PropertyServiceImpl extends DefaultServiceImpl<Property> implements
     public String getPropertyValue(String code, String propertyCode) {
         Property property = this.getProperty(code, propertyCode);
         if (property == null) {
+            log.warn("查无此配置。Config Code: {}. Property Code: {}", code, propertyCode);
             return null;
         }
         return property.getValue();
