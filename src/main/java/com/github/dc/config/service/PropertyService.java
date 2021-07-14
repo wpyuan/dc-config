@@ -15,20 +15,20 @@ import java.util.List;
  */
 public interface PropertyService extends DefaultService<Property> {
     /**
-     * 根据配置编码和属性值获取属性描述（只取启用的）
+     * 根据配置编码和属性代码获取属性值（只取启用的）
      * @param code 配置编码
-     * @param propertyValue 属性值
-     * @return 对应的属性描述
+     * @param propertyCode 属性代码
+     * @return 对应的属性值
      */
-    String getPropertyDesc(String code, String propertyValue);
+    String getPropertyDesc(String code, String propertyCode);
 
     /**
-     * 根据配置编码和属性值获取属性（只取启用的）
+     * 根据配置编码和属性代码获取属性（只取启用的）
      * @param code 配置编码
-     * @param propertyValue 属性值
+     * @param propertyCode 属性代码
      * @return 对应的属性
      */
-    Property getProperty(String code, String propertyValue);
+    Property getProperty(String code, String propertyCode);
 
     /**
      * 根据配置编码获取属性集合（只取启用的）

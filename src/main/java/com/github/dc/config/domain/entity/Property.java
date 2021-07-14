@@ -32,6 +32,10 @@ public class Property {
       */
     private String configId;
     /**
+     * 代码
+     */
+    private String code;
+    /**
       * 值
       */
     private String value;

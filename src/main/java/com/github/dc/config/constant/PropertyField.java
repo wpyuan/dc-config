@@ -17,6 +17,10 @@ public interface PropertyField {
       */
     String CONFIG_ID = "configId";
     /**
+     * 代码
+     */
+    String CODE = "code";
+    /**
       * 值
       */
     String VALUE = "value";
