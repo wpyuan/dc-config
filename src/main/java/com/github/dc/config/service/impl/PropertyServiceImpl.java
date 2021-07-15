@@ -39,7 +39,7 @@ public class PropertyServiceImpl extends DefaultServiceImpl<Property> implements
         if (config == null) {
             return null;
         }
-        Property property = this.detail(Property.builder().configId(config.getId()).value(propertyCode).isEnable(true).build());
+        Property property = this.detail(Property.builder().configId(config.getId()).code(propertyCode).isEnable(true).build());
         return property;
     }
 
