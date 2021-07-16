@@ -4,12 +4,14 @@ import com.github.mybatis.crud.config.MyBatisSqlSessionFactoryConfig;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 /**
  * <p>
- *     默认实现mapper自动配置
+ * 默认实现mapper自动配置
  * </p>
  *
  * @author wangpeiyuan
@@ -17,12 +19,22 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @AutoConfigureAfter(MyBatisSqlSessionFactoryConfig.class)
-public class DCConfigMapperScannerAutoConfiguration {
+public class DCConfigMapperScannerAutoConfiguration implements EnvironmentAware {
+
+    private Environment env;
+    private String sqlSessionFactoryBeanName;
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        this.env = environment;
+        this.sqlSessionFactoryBeanName = this.env.getProperty("dc.mybatis.mapperScannerConfigurer.sqlSessionFactoryBeanName");
+    }
 
     @Bean
-    @ConditionalOnMissingBean(name = "dcConfigMapperScannerAutoConfiguration")
-    public MapperScannerConfigurer dcConfigMapperScannerAutoConfiguration() {
+    @ConditionalOnMissingBean(name = "dcConfigMapperScannerConfigurer")
+    public MapperScannerConfigurer dcConfigMapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+        mapperScannerConfigurer.setSqlSessionFactoryBeanName(sqlSessionFactoryBeanName);
         mapperScannerConfigurer.setBasePackage("com.github.dc.config.mapper");
         return mapperScannerConfigurer;
     }

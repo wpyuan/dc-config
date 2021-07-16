@@ -1,0 +1,5 @@
+# 单数据源不配置。针对多数据源的情况，自定义mapper文件绑定的SqlSessionFactory名。
+dc:
+  mybatis:
+    mapperScannerConfigurer:
+      sqlSessionFactoryBeanName: sqlSessionFactory
