@@ -1,6 +1,7 @@
 package com.github.dc.config.config;
 
 import com.github.mybatis.crud.config.MyBatisSqlSessionFactoryConfig;
+import com.github.mybatis.crud.util.StringUtil;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -34,7 +35,9 @@ public class DCConfigMapperScannerAutoConfiguration implements EnvironmentAware 
     @ConditionalOnMissingBean(name = "dcConfigMapperScannerConfigurer")
     public MapperScannerConfigurer dcConfigMapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setSqlSessionFactoryBeanName(sqlSessionFactoryBeanName);
+        if (StringUtil.isNotBlank(sqlSessionFactoryBeanName)) {
+            mapperScannerConfigurer.setSqlSessionFactoryBeanName(sqlSessionFactoryBeanName);
+        }
         mapperScannerConfigurer.setBasePackage("com.github.dc.config.mapper");
         return mapperScannerConfigurer;
     }
