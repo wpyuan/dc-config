@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 
 /**
  *  系统配置
@@ -20,16 +22,16 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Config {
+public class Config implements Serializable {
 
     /**
-      * 
-      */
+     *
+     */
     @Id(fillMethod = CustomFillIdMethod.UUID)
     private String id;
     /**
-      * 代码
-      */
+     * 代码
+     */
     private String code;
     /**
       * 描述

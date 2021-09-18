@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 
 /**
  *  属性值
@@ -20,16 +22,16 @@ import lombok.NoArgsConstructor;
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Property {
+public class Property implements Serializable {
 
     /**
-      * 
-      */
+     *
+     */
     @Id(fillMethod = CustomFillIdMethod.UUID)
     private String id;
     /**
-      * 所属系统配置ID，取自CONFIG表.ID
-      */
+     * 所属系统配置ID，取自CONFIG表.ID
+     */
     private String configId;
     /**
      * 代码
