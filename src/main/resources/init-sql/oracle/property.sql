@@ -2,23 +2,21 @@ create table PROPERTY
 (
     ID          VARCHAR2(300) not null
         constraint PROPERTY_PK
-        primary key,
+            primary key,
     CONFIG_ID   VARCHAR2(300) not null,
-    CODE        VARCHAR2(300) not null,
     VALUE       VARCHAR2(300) not null,
     DESCRIPTION VARCHAR2(300),
     ORDER_SEQ   NUMBER(22) default 10,
     REMARK      VARCHAR2(1000),
-    IS_ENABLE   NUMBER(1) default 1
-) /
+    IS_ENABLE   NUMBER(1)  default 1,
+    CODE        VARCHAR2(300)
+)
+/
 
 comment on table PROPERTY is '属性值'
 /
 
 comment on column PROPERTY.CONFIG_ID is '所属系统配置ID，取自CONFIG表.ID'
-/
-
-comment on column PROPERTY.CODE is '代码'
 /
 
 comment on column PROPERTY.VALUE is '值'
@@ -36,8 +34,7 @@ comment on column PROPERTY.REMARK is '备注'
 comment on column PROPERTY.IS_ENABLE is '是否启用'
 /
 
-create
-unique index PROPERTY_CODE_UINDEX
-    on PROPERTY (CODE)
+create unique index PROPERTY_CODE_CONFIG_ID_UINDEX
+    on PROPERTY (CODE, CONFIG_ID)
 /
 
