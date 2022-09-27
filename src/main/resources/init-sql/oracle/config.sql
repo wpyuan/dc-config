@@ -1,4 +1,4 @@
-create table CONFIG
+create table DC_CONFIG
 (
     ID          VARCHAR2(300) not null
         constraint CONFIG_PK
@@ -9,19 +9,19 @@ create table CONFIG
 )
     /
 
-comment on table CONFIG is '系统配置'
+comment on table DC_CONFIG is '系统配置'
 /
 
-comment on column CONFIG.CODE is '代码'
+comment on column DC_CONFIG.CODE is '代码'
 /
 
-comment on column CONFIG.DESCRIPTION is '描述'
+comment on column DC_CONFIG.DESCRIPTION is '描述'
 /
 
-comment on column CONFIG.IS_ENABLE is '是否启用'
+comment on column DC_CONFIG.IS_ENABLE is '是否启用'
 /
 
-create unique index CONFIG_CODE_UINDEX
-    on CONFIG (CODE)
+create unique index DC_CONFIG_CODE_UINDEX
+    on DC_CONFIG (CODE)
 /
 

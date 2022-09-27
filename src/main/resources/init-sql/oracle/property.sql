@@ -1,4 +1,4 @@
-create table PROPERTY
+create table DC_PROPERTY
 (
     ID          VARCHAR2(300) not null
         constraint PROPERTY_PK
@@ -13,28 +13,28 @@ create table PROPERTY
 )
 /
 
-comment on table PROPERTY is '属性值'
+comment on table DC_PROPERTY is '属性值'
 /
 
-comment on column PROPERTY.CONFIG_ID is '所属系统配置ID，取自CONFIG表.ID'
+comment on column DC_PROPERTY.CONFIG_ID is '所属系统配置ID，取自CONFIG表.ID'
 /
 
-comment on column PROPERTY.VALUE is '值'
+comment on column DC_PROPERTY.VALUE is '值'
 /
 
-comment on column PROPERTY.DESCRIPTION is '描述'
+comment on column DC_PROPERTY.DESCRIPTION is '描述'
 /
 
-comment on column PROPERTY.ORDER_SEQ is '排序号'
+comment on column DC_PROPERTY.ORDER_SEQ is '排序号'
 /
 
-comment on column PROPERTY.REMARK is '备注'
+comment on column DC_PROPERTY.REMARK is '备注'
 /
 
-comment on column PROPERTY.IS_ENABLE is '是否启用'
+comment on column DC_PROPERTY.IS_ENABLE is '是否启用'
 /
 
-create unique index PROPERTY_CODE_CONFIG_ID_UINDEX
-    on PROPERTY (CODE, CONFIG_ID)
+create unique index DC_PROPERTY_CODE_CONFIG_ID_UINDEX
+    on DC_PROPERTY (CODE, CONFIG_ID)
 /
 

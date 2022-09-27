@@ -17,7 +17,7 @@ import java.io.Serializable;
  * @author wangpeiyuan
  * @date 2021-04-18 09:16:07
  */
-@Table(name = "PROPERTY")
+@Table(name = "dc_property")
 @Data
 @Builder(toBuilder = true)
 @NoArgsConstructor
